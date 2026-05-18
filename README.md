@@ -237,7 +237,7 @@ results/latent_tsne.pdf
 
 This file contains a 2D t-SNE projection of the learned latent representations.
 
-Reviewers should observe:
+ Observed:
 
 - Highly mixed demographic distributions
 - Minimal clustering by protected attributes
