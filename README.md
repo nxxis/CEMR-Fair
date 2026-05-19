@@ -2,7 +2,7 @@
 
 Official PyTorch implementation of **CITE-ODE**, a continuous-time evidential learning framework for uncertainty-aware ICU risk prediction from irregularly sampled clinical telemetry.
 
-Designed for submission to the **IEEE International Conference on Data Mining (ICDM 2026) Applied Track**.
+Designed for submission to the **IEEE International Conference on Data Mining (ICDM 2026)**.
 
 ---
 
