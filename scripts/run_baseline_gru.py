@@ -82,7 +82,6 @@ def main():
 
         print(f"Baseline Epoch [{epoch+1:02d}/15] | Supervised BCE Loss: {total_loss/len(loader):.4f}")
 
-    # POST-TRAINING RIGOROUS VALIDATION & DEMOGRAPHIC STRATIFICATION
     model.eval()
     all_probs, all_y, all_d = [], [], []
 

@@ -23,7 +23,6 @@ if PROJECT_ROOT not in sys.path:
 from data.clinical_mimic import get_mimic_dataloader
 from models.tide_ode import CEMREvidentialODE
 
-# Import promoted helper scripts (moved out of `archive/` for package imports)
 from scripts.run_baseline_gru import GRUBaselineNet
 from scripts.run_baseline_grud import GRUDBaselineNet
 from scripts.evaluate_blackout_stress import apply_contiguous_blackout
@@ -32,9 +31,6 @@ from utils.metrics import calculate_ece
 os.makedirs("plots", exist_ok=True)
 
 
-# ------------------------------
-# Figure 1: Reliability Diagram (6‑hour blackout, single‑seed representative)
-# ------------------------------
 def get_probs_blackout(model, loader, device, is_ode=True):
     """Compute predicted probabilities under a contiguous blackout stress.
 
@@ -86,7 +82,6 @@ def generate_figure1():
     gru_frac, gru_pred = calibration_curve(gru_y, gru_probs, n_bins=n_bins, strategy="uniform")
     grud_frac, grud_pred = calibration_curve(grud_y, grud_probs, n_bins=n_bins, strategy="uniform")
 
-    # The ECE values used here are the canonical numbers from the experiments
     cite_ece = 0.018
     gru_ece = 0.016
     grud_ece = 0.014
@@ -133,9 +128,6 @@ def generate_figure1():
     print("Figure 1 saved (reliability diagram).")
 
 
-# ------------------------------
-# Figure 2: Selective Prediction (Multi‑Seed, with variance bands)
-# ------------------------------
 def generate_figure2():
     coverage = np.array([100, 90, 80, 70])
     cite_mean = np.array([0.0177, 0.0087, 0.0085, 0.0081])
@@ -171,9 +163,6 @@ def generate_figure2():
     print("Figure 2 saved (selective prediction with variance bands).")
 
 
-# ------------------------------
-# Figure 3: Subgroup Scatter Plot (Multi‑Seed, with error bars)
-# ------------------------------
 def generate_figure3():
     groups = ["Female", "Male", "White", "Black", "Hispanic", "Asian"]
     n_counts = [862, 1134, 1312, 220, 76, 59]
@@ -208,9 +197,6 @@ def generate_figure3():
     print("Figure 3 saved (subgroup scatter with error bars).")
 
 
-# ------------------------------
-# Main
-# ------------------------------
 if __name__ == "__main__":
     generate_figure1()
     generate_figure2()

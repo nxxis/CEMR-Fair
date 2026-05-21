@@ -10,7 +10,6 @@ import subprocess
 import os
 import sys
 
-# Ensure checkpoint directory exists
 os.makedirs("checkpoints", exist_ok=True)
 
 seeds = [42, 123, 456, 789, 101112]
@@ -20,5 +19,4 @@ for seed in seeds:
     output = os.path.join(script_dir, f"checkpoints/baseline_gru_seed{seed}.pth")
     script_path = os.path.join(script_dir, "train_gru_seed.py")
     cmd = [python, script_path, "--seed", str(seed), "--output", output]
-    print(f"Running: {' '.join(cmd)}")
     subprocess.run(cmd, check=True)

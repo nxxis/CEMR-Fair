@@ -40,7 +40,6 @@ def main():
             idx_last = mask.sum(dim=1) - 1
             final_logits = logits_y[torch.arange(logits_y.size(0)), idx_last].squeeze(-1)
             
-            # Pure Predictive Training: Minimax Adversarial head completely disconnected
             optimizer.zero_grad()
             loss_nll = evidential_regression_loss(gamma, v, alpha, beta, x, mask)
             loss_task = criterion_task(final_logits, y)
@@ -51,6 +50,6 @@ def main():
         print(f"Ablation Epoch [{epoch+1:02d}/15] | Evidential NLL: {loss_nll.item():.4f} | Task BCE: {loss_task.item():.4f}")
         
     torch.save(model.state_dict(), "checkpoints/cemr_ablation_no_adv.pth")
-    print("💾 Ablation weights successfully saved to Google Drive.")
+    print("Ablation weights saved to checkpoints/cemr_ablation_no_adv.pth")
 
 if __name__ == "__main__": main()

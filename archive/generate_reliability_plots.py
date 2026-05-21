@@ -48,7 +48,6 @@ def main():
     os.makedirs("plots", exist_ok=True)
     plt.savefig("plots/figure2_reliability_blackout.pdf", dpi=300)
     plt.savefig("plots/figure2_reliability_blackout.png", dpi=300)
-    print("Figure 2: reliability diagram generated successfully in plots/ directory.")
 
 if __name__ == "__main__":
     main()

@@ -41,7 +41,6 @@ def main():
 
     print(f"Downloading Drive folder {args.folder_url} into {dest} ...")
     try:
-        # gdown supports folder download via `download_folder`
         gdown.download_folder(args.folder_url, output=dest, quiet=False, use_cookies=False)
     except Exception as e:
         print("gdown failed to download the folder:", e)
@@ -52,8 +51,8 @@ def main():
     if os.path.exists(expected):
         print(f"Success: cohort downloaded to {expected}")
     else:
-        print("Download finished but expected file not found:", expected)
-        print("Check the Drive folder contents and move the cohort CSV into the data/ folder.")
+        print(f"Download finished, but the expected cohort file was not found: {expected}")
+        print("Verify the Drive folder contents and place the CSV in data/.")
 
 
 if __name__ == "__main__":
