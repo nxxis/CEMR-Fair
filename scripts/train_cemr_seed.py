@@ -11,8 +11,12 @@ import random
 import torch
 import numpy as np
 import argparse
+import sys
 import torch.nn as nn
 import torch.optim as optim
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 from data.clinical_mimic import get_mimic_dataloader
 from models.tide_ode import CEMREvidentialODE
 

@@ -8,9 +8,13 @@ Results are saved to `results/multiseed_subgroups.csv`.
 
 import os
 import numpy as np
+import sys
 import torch
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 from data.clinical_mimic import get_mimic_dataloader
 from models.tide_ode import CEMREvidentialODE
 from utils.metrics import calculate_ece
