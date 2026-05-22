@@ -1,6 +1,8 @@
-# CITE-ODE: Continuous-Time Evidential Neural ODEs for Uncertainty-Aware ICU Risk Prediction
+# CITE-ODE: Continuous-Time Evidential Modeling for Selective Prediction under Structured Missingness in ICU Time Series
 
-Official PyTorch implementation of **CITE-ODE**, a continuous-time evidential learning framework for uncertainty-aware ICU risk prediction from irregularly sampled clinical telemetry.
+Official PyTorch implementation of **CITE-ODE**, a continuous-time evidential learning framework designed for **uncertainty-aware selective prediction** in ICU time-series with structured and irregular missingness.
+
+The framework integrates neural ordinary differential equations (Neural ODEs) with evidential deep learning to produce calibrated uncertainty estimates that enable reliable prediction filtering under real-world clinical data corruption scenarios.
 
 ---
 
